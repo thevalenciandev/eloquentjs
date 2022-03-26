@@ -8,4 +8,12 @@ function filter(array, predicate) {
   return res
 }
 
-module.exports = {filter}
+function map(array, transform) {
+  let res = []
+  for (let el of array) {
+    res.push(transform(el))
+  }
+  return res
+}
+
+module.exports = {filter, map}
