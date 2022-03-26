@@ -16,4 +16,18 @@ function map(array, transform) {
   return res
 }
 
-module.exports = {filter, map}
+function reduce(array, combine, start) {
+  let res = start
+  let i = 0
+  if (res == null) {
+    res = array[0]
+    i++
+    console.log("We start with", res, i)
+  }
+  while (i < array.length) {
+    res = combine(res, array[i++])
+  }
+  return res
+}
+
+module.exports = {filter, map, reduce}
