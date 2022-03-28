@@ -22,7 +22,6 @@ function reduce(array, combine, start) {
   if (res == null) {
     res = array[0]
     i++
-    console.log("We start with", res, i)
   }
   while (i < array.length) {
     res = combine(res, array[i++])
@@ -30,4 +29,18 @@ function reduce(array, combine, start) {
   return res
 }
 
-module.exports = {filter, map, reduce}
+function loop(val, predicate, updatefn, bodyfn) {
+  while (predicate(val)) {
+    bodyfn(val)
+    val = updatefn(val)
+  }
+}
+
+function every(array, predicate) {
+  for (let el of array) {
+    if (!predicate(el)) return false;
+  }
+  return true;
+}
+
+module.exports = {filter, map, reduce, loop, every}
