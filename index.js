@@ -1,3 +1,4 @@
+// CHAPTER 5
 let {filter, map, reduce, loop, every} = require("./ch5")
 
 console.log(filter([1, 2, 3], el => el > 1))
@@ -19,3 +20,15 @@ loop(5, n => n > 0, n => n - 1, console.log)
 console.log(every([11,12,13], el => el > 10))
 console.log(every(["Hey", "Hi", "Howdy"], el => el.length > 2))
 console.log(every([], n => n < 10));
+
+// CHAPTER 6
+let {Matrix, Vec} = require('./ch6')
+let m = new Matrix(2, 2, (x,y) => `value ${x},${y}`)
+for (let {x,y,value} of m) {
+  console.log(x,y,value)
+}
+// Exercises
+// Vector
+console.log(new Vec(1, 2).plus(new Vec(2, 3)))
+console.log(new Vec(1, 2).minus(new Vec(2, 3)))
+console.log(new Vec(3, 4).length)
