@@ -70,4 +70,31 @@ class Vec {
   
 }
 
-module.exports = {Matrix, Vec}
+// Very slow implementation below, but just following the book 
+class Group {
+  constructor(vals) {
+    this.values = []
+  }
+  
+  static from(iterable) {
+    const group = new Group()
+    iterable.forEach(v => group.add(v))
+    return group
+  }
+
+  add(val) {
+    if (!this.has(val)) {
+      this.values.push(val)
+    }
+  }
+
+  delete(val) {
+    this.values = this.values.filter(v => v !== val)
+  }
+
+  has(val) {
+    return this.values.includes(val)
+  }
+}
+
+module.exports = {Matrix, Vec, Group}

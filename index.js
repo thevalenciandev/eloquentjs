@@ -22,7 +22,7 @@ console.log(every(["Hey", "Hi", "Howdy"], el => el.length > 2))
 console.log(every([], n => n < 10));
 
 // CHAPTER 6
-let {Matrix, Vec} = require('./ch6')
+let {Matrix, Vec, Group} = require('./ch6')
 let m = new Matrix(2, 2, (x,y) => `value ${x},${y}`)
 for (let {x,y,value} of m) {
   console.log(x,y,value)
@@ -32,3 +32,12 @@ for (let {x,y,value} of m) {
 console.log(new Vec(1, 2).plus(new Vec(2, 3)))
 console.log(new Vec(1, 2).minus(new Vec(2, 3)))
 console.log(new Vec(3, 4).length)
+// Set
+let group = Group.from([10, 20])
+console.log(group)
+console.log(group.has(10))
+console.log(group.has(30))
+group.add(10)
+group.delete(10)
+console.log(group.has(10))
+console.log(group)
