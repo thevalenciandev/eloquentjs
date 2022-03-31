@@ -95,6 +95,25 @@ class Group {
   has(val) {
     return this.values.includes(val)
   }
+
+  [Symbol.iterator]() {
+    return new GroupIterator(this.values)
+  }
+
+}
+
+class GroupIterator {
+  constructor(coll) {
+    this.coll = coll
+    this.index = 0
+  }
+  
+  next() {
+    if (this.index == this.coll.length) {
+      return {done: true}
+    }
+    return {done: false, value: this.coll[this.index++]}
+  }
 }
 
 module.exports = {Matrix, Vec, Group}

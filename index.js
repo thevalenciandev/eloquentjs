@@ -33,11 +33,28 @@ console.log(new Vec(1, 2).plus(new Vec(2, 3)))
 console.log(new Vec(1, 2).minus(new Vec(2, 3)))
 console.log(new Vec(3, 4).length)
 // Set
-let group = Group.from([10, 20])
+console.log("GROUP EXERCISE")
+let group = Group.from([10, 20, 10, 30])
 console.log(group)
+for (const e of group) {
+  console.log(e)
+}
 console.log(group.has(10))
 console.log(group.has(30))
 group.add(10)
 group.delete(10)
 console.log(group.has(10))
 console.log(group)
+for (const e of group) {
+  console.log(e)
+}
+group.delete(20)
+console.log(group)
+for (const e of group) {
+  console.log(e)
+}
+group.delete(30)
+console.log(group)
+for (const e of group) {
+  console.log(e)
+}
